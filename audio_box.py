@@ -25,8 +25,7 @@ class AudioBOX:
 
     @staticmethod
     def sine_stream_gen(freq, duration, volume=1.0):
-        T = duration
-        t = np.arange(0, T, 1 / AudioBOX.sample_rate)
+        t = np.arange(0, duration, 1 / AudioBOX.sample_rate)
         x = 0.5 * np.sin(2 * np.pi * freq * t)
         x = (x * (2 ** 31)).astype(np.int32)
         return x
